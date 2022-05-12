@@ -1,0 +1,24 @@
+Developing Data Products Final Project
+================================================
+author: Troy Huffman
+date: 5.12.2022
+
+Estimating your child's height given gender and parent's height could provide parents and their children an insight into thier children's development. This app allows parent's to input their height and their child's gender and get an estimate of their children's probable maximum height. The data analysis uses Galton (1886) data from which Galton observed 934 children in 205 families.
+=================================================
+
+Galton estimated the simple linear regression line of child’s height on average parent’s height and, upon finding that the slope was positive but less than 1, concluded that children of taller-than-average parents tended to also be taller than average but not as tall as their parents; and, similarly, children of shorter-than-average parents tended to be shorter than average, but not as short as their parents. He labeled this “regression towards mediocrity” because of the apparent regression (i.e., reversion) of children’s height toward the average.
+========================================================
+
+
+========================================================
+
+```{r, echo=FALSE}
+require(HistData)
+lm.model=lm(childHeight~midparentHeight,data=GaltonFamilies)
+plot(GaltonFamilies$midparentHeight,GaltonFamilies$childHeight,xlab="Midparent Height",ylab="Child Height")
+abline(lm.model$coef,col="blue")
+```
+
+========================================================
+
+Code used to create app can be found at GitHub: https://github.com/troyhuffman/Developing-Data-Products
